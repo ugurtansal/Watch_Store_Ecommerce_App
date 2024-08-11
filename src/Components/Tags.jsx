@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Category from './Category'
 
 const Tags = () => {
-    const tags=["All Brands","Apple","Samsung","Xiaomi","Huawei","Sony","Oppo"];
+    const tags=["All Brands","Headphones","Apple","Samsung","Xiaomi","Huawei","Sony","Oppo"];
     const [selectedCategory,setSelectedCategory]=useState("All Brands")
   return (
     <View style={{margin:5}}>

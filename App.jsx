@@ -11,14 +11,33 @@ import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommu
 import LikedScreen from './src/screens/LikedScreen';
 import CartScreen from './src/screens/CartScreen';
 import AccountScreen from './src/screens/AccountScreen';
+import ProductDetailsScreen from './src/screens/ProductDetailsScreen';
 
 
 MaterialIcons
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
+const MyHomeStack=()=>{
+  return(
+    <Stack.Navigator screenOptions={
+      {
+        headerShown:false
+      }
+    }
+    initialRouteName=''>
+      <Stack.Screen name="HOME" component={HomeScreen} />
+      <Stack.Screen name="PRODUCT_DETAILS" component={ProductDetailsScreen} />
+    </Stack.Navigator>
+
+
+  )
+}
+
+
 const App = () => {
   return (
+
     <NavigationContainer>
       <Tab.Navigator
       screenOptions={{
@@ -27,7 +46,7 @@ const App = () => {
         tabBarInactiveTintColor: "gray",
       }}
       >
-        <Tab.Screen name="Home" component={HomeScreen} options={{
+        <Tab.Screen name="HomeStack" component={MyHomeStack} options={{
           tabBarIcon:({color})=>{
             return(
             <Entypo name={"home"} color={color} size={25}/>

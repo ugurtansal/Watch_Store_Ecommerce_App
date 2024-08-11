@@ -1,19 +1,21 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 
 const Header = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.txt}>Find Your Suitable Watch Now</Text>
       <View style={styles.searchContainer}>
         <View style={styles.search}>
             <Ionicons name={"search-outline"} size={24} color={"#5b41ff"}  style={styles.searchIcon}/>
             <TextInput placeholder='Search...' placeholderTextColor={"black"} style={styles.searchTxt}/>
         </View>
-        <Ionicons name={"apps-sharp"} color={"#5b41ff"} size={45} />
+        <TouchableOpacity>
+          <Ionicons name={"apps-sharp"} color={"#5b41ff"} size={45} />
+        </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 
@@ -33,7 +35,8 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         padding:10,
         flex:1,
-        marginHorizontal:10
+        marginHorizontal:10,
+        borderColor:"#5b41ff",
     },
     searchContainer:{
         marginVertical:25,
