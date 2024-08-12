@@ -8,6 +8,7 @@ const Category = ({item,selectedCategory,setSelectedCategory}) => {
             styles.underline
         ]}>{item}</Text>
     </TouchableOpacity>
+
   )
 }
 

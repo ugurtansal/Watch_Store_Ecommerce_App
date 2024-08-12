@@ -25,7 +25,7 @@ const MyHomeStack=()=>{
         headerShown:false
       }
     }
-    initialRouteName=''>
+    initialRouteName='HOME'>
       <Stack.Screen name="HOME" component={HomeScreen} />
       <Stack.Screen name="PRODUCT_DETAILS" component={ProductDetailsScreen} />
     </Stack.Navigator>
@@ -46,7 +46,7 @@ const App = () => {
         tabBarInactiveTintColor: "gray",
       }}
       >
-        <Tab.Screen name="HomeStack" component={MyHomeStack} options={{
+        <Tab.Screen name="Home" component={MyHomeStack} options={{
           tabBarIcon:({color})=>{
             return(
             <Entypo name={"home"} color={color} size={25}/>

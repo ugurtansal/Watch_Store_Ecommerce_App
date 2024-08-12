@@ -2,9 +2,8 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import Category from './Category'
 
-const Tags = () => {
-    const tags=["All Brands","Headphones","Apple","Samsung","Xiaomi","Huawei","Sony","Oppo"];
-    const [selectedCategory,setSelectedCategory]=useState("All Brands")
+const Tags = ({tags,selectedCategory,setSelectedCategory}) => {
+    
   return (
     <View style={{margin:5}}>
     <FlatList
@@ -17,6 +16,7 @@ const Tags = () => {
     keyExtractor={(item)=>item}
     ItemSeparatorComponent={<View style={{paddingHorizontal:5}}/>}
     />
+    
     </View>
   )
 }

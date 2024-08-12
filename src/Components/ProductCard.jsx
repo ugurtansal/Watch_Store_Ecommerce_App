@@ -1,9 +1,13 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const ProductCard = ({item}) => {
+  const navigatior=useNavigation();
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={()=>
+      { navigatior.navigate("PRODUCT_DETAILS",{ item })}}  
+      style={styles.container}>
       <View style={styles.imageContainer}>
         <Image source={{uri:item.image}} style={styles.image}/>
       </View>
@@ -14,7 +18,7 @@ const ProductCard = ({item}) => {
       <View>
         <Text style={styles.priceTxt}>${item.price}</Text>
       </View>
-    </View> 
+    </TouchableOpacity> 
   )
 }
 

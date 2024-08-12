@@ -24,7 +24,7 @@ export const smartWatches=[
             "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1709216877/Croma%20Assets/Wearable/Wearable%20Devices/Images/305253_uebqhw.png",
             "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1710485859/Croma%20Assets/Communication/Wearable%20Devices/Images/305253_2_rv5qnz.png",
              ],
-         details:"You can easily view notifications, apps, and stats at a glance on the vivid 1.31-inch Super AMOLED of the SAMSUNG Galaxy Watch7 40mm smartwatch. Moreover, this smartwatch features a smart design and round dial, making it a stylish addition to your accessory collection.",
+        details:"You can easily view notifications, apps, and stats at a glance on the vivid 1.31-inch Super AMOLED of the SAMSUNG Galaxy Watch7 40mm smartwatch. Moreover, this smartwatch features a smart design and round dial, making it a stylish addition to your accessory collection.",
         review:"You can navigate your runs and hikes with confidence, courtesy of the built-in GPS in this smartwatch."
    
     },
