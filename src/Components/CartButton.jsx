@@ -1,17 +1,28 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import FontAwesome6 from 'react-native-vector-icons/dist/FontAwesome6';
+import React, { useContext } from 'react'
+import FontAwesome from 'react-native-vector-icons/dist/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+import { CartContext } from '../Context/CartContext';
 
-const CartButton = ({price}) => {
+const CartButton = ({item,price,selectedColor}) => {
+  const {newCartItem}=useContext(CartContext);
+  const navigation=useNavigation();
+
+  const handleAdd=(item)=>{
+    item.color=selectedColor;
+    newCartItem(item); 
+    navigation.navigate('Cart');
+  }
   return (
     <View>
-      
-      <LinearGradient colors={["#8743ff","#4136f1"]} style={styles.btn}>
-            <FontAwesome6 name={"cart-shopping"} color={"white"} size={25}/>
-            <Text style={styles.txt}>Add To Cart |</Text>
-            <Text style={styles.txt}>${price}</Text>
-      </LinearGradient>
+      <TouchableOpacity onPress={()=>handleAdd(item)}>
+        <LinearGradient colors={["#8743ff","#4136f1"]} style={styles.btn}  >
+              <FontAwesome name={"opencart"} color={"white"} size={25}/>
+              <Text style={styles.txt}>Add To Cart |</Text>
+              <Text style={styles.txt}>${price}</Text>
+        </LinearGradient>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -24,12 +35,13 @@ const styles = StyleSheet.create({
     height:75,
     justifyContent:"center",
     alignItems:"center",
-    borderRadius:25,
+    borderRadius:15,
     marginVertical:20
   },
   txt:{
-    fontSize:25,
+    fontSize:22,
     marginHorizontal:10,
-    fontWeight:"bold"
+    fontWeight:"bold",
+    color:"white"
   }
 })

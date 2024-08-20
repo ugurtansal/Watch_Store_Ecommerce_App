@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import FavritesCard from '../Components/FavritesCard'
 
 const LikedScreen = () => {
   return (
     <View>
-      <Text>LikedScreen</Text>
+      <FavritesCard/>
+      <FavritesCard/>
     </View>
   )
 }

@@ -1,5 +1,5 @@
 import { FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 
@@ -12,9 +12,8 @@ const ProductDetailsScreen = () => {
     const [selectedText,setSelectedText]=useState("Details");
     const [selectedColor,setselectedColor]=useState("Silver");
     const [isLiked,setIsLiked]=useState(false);
-    const navigation=useNavigation();
     const item=useRoute().params.item;
-     
+    const navigation=useNavigation();
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -43,6 +42,7 @@ const ProductDetailsScreen = () => {
             <Text style={styles.rateTxt}>4.3</Text>
         </View>
       </View>
+      <Text style={styles.brandTxt}>{item.brand}</Text>
 
       <Text style={styles.colorTxt}>Colors</Text>
 
@@ -83,7 +83,7 @@ const ProductDetailsScreen = () => {
         selectedText==="Details"?<Text style={styles.detailsReviewTxt}>{item.details}</Text>
         :<Text style={styles.detailsReviewTxt}>{item.review}</Text>
         }
-          <CartButton price={item.price}/>
+          <CartButton item={item} price={item.price} selectedColor={selectedColor}/>
      </>
     </ScrollView>
 </View>
@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
         color:"black",
         fontSize:30,
         marginVertical:10,
-        fontWeight:"bold"
+        fontWeight:"bold",
+        width:"75%"
     },
     colorTxt:{
         color:"black",
@@ -152,7 +153,8 @@ const styles = StyleSheet.create({
         backgroundColor:"#fcfaff",
         margin:10,
         flexDirection:"row",
-        padding:10
+        padding:10,
+        justifyContent:"space-around"
     },
     rateTxt:{
         color:"#989dac",
@@ -164,5 +166,10 @@ const styles = StyleSheet.create({
         fontSize:17.5,
         fontWeight:"300",
         lineHeight:24
+    },
+    brandTxt:{
+        color:"#c9ccd4",
+        fontSize:17,
+        fontWeight:"bold"
     }
 })

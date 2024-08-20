@@ -12,7 +12,7 @@ import LikedScreen from './src/screens/LikedScreen';
 import CartScreen from './src/screens/CartScreen';
 import AccountScreen from './src/screens/AccountScreen';
 import ProductDetailsScreen from './src/screens/ProductDetailsScreen';
-
+import { CartProvider } from './src/Context/CartContext';
 
 MaterialIcons
 const Tab = createBottomTabNavigator();
@@ -37,43 +37,45 @@ const MyHomeStack=()=>{
 
 const App = () => {
   return (
-
-    <NavigationContainer>
-      <Tab.Navigator
-      screenOptions={{
-        headerShown:false,
-        tabBarActiveTintColor: "#5b41ff",
-        tabBarInactiveTintColor: "gray",
-      }}
-      >
-        <Tab.Screen name="Home" component={MyHomeStack} options={{
-          tabBarIcon:({color})=>{
-            return(
-            <Entypo name={"home"} color={color} size={25}/>
-            ) }
-        }}/>
-        <Tab.Screen name="Favorites" component={LikedScreen} options={{
-          tabBarIcon:({color})=>{
-            return(
-            <MaterialIcons name={"favorite"} color={color} size={25}/>
-            )}
-        }}/>
-        <Tab.Screen name="Cart" component={CartScreen} options={{
-          tabBarIcon:({color})=>{
-            return(
-            <FontAwesome6 name={"cart-shopping"} color={color} size={25}/>
-            )}
-        }}/>
-        <Tab.Screen name="Account" component={AccountScreen}
-         options={{
-          tabBarIcon:({color})=>{
-            return(
-            <MaterialCommunityIcons name={"account"} color={color} size={25}/>
-            )}
+    <CartProvider>
+      <NavigationContainer>
+        <Tab.Navigator
+        screenOptions={{
+          headerShown:false,
+          tabBarActiveTintColor: "#5b41ff",
+          tabBarInactiveTintColor: "gray",
         }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+        initialRouteName='Favorites'
+        >
+          <Tab.Screen name="Home" component={MyHomeStack} options={{
+            tabBarIcon:({color})=>{
+              return(
+              <Entypo name={"home"} color={color} size={25}/>
+              ) }
+          }}/>
+          <Tab.Screen name="Favorites" component={LikedScreen} options={{
+            tabBarIcon:({color})=>{
+              return(
+              <MaterialIcons name={"favorite"} color={color} size={25}/>
+              )}
+          }}/>
+          <Tab.Screen name="Cart" component={CartScreen} options={{
+            tabBarIcon:({color})=>{
+              return(
+              <FontAwesome6 name={"cart-shopping"} color={color} size={25}/>
+              )}
+          }}/>
+          <Tab.Screen name="Account" component={AccountScreen}
+          options={{
+            tabBarIcon:({color})=>{
+              return(
+              <MaterialCommunityIcons name={"account"} color={color} size={25}/>
+              )}
+          }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </CartProvider>
   )
 }
 
